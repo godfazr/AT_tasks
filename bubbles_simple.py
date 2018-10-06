@@ -22,7 +22,7 @@ else:
     except AssertionError:
         print("Counter error")
     else:
-        print("bubbles found", count)
+        print("bubbles found", exp)
 finally:
     ff.close()
 
