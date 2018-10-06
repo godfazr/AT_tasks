@@ -14,15 +14,15 @@ except TimeoutError:
 else:
     time.sleep(5)
     elem = ff.find_elements_by_class_name("bubble")
-    exp = len(elem)
+    count = len(elem)
     for el in elem:
         el.click()
     try:
-        expect(exp).to(equal(int(ff.find_element_by_id("score").text)))
+        expect(count).to(equal(int(ff.find_element_by_id("score").text)))
     except AssertionError:
         print("Counter error")
     else:
-        print("bubbles found", exp)
+        print("bubbles found", count)
 finally:
     ff.close()
 
