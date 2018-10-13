@@ -10,10 +10,10 @@ ff = webdriver.Firefox()
 ff.get("https://task1-bvckdxdkxw.now.sh/")
 while not end:
     try:
-        elem = WebDriverWait(ff, 1).until(EC.presence_of_element_located((By.CLASS_NAME, "bubble")))
+        elem = WebDriverWait(ff, 5).until(EC.presence_of_element_located((By.CLASS_NAME, "bubble")))
     except KeyboardInterrupt:
-         end = True
-    #     break
+#        end = True
+        break
     except TimeoutError:
         continue
     else:
