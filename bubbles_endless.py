@@ -5,17 +5,16 @@ from selenium.webdriver.support import expected_conditions as EC # available sin
 from expects import expect, equal
 
 count = 0
-end = False
 ff = webdriver.Firefox()
 ff.get("https://task1-bvckdxdkxw.now.sh/")
-while not end:
+while True:
     try:
         elem = WebDriverWait(ff, 5).until(EC.presence_of_element_located((By.CLASS_NAME, "bubble")))
-    except KeyboardInterrupt:
-#        end = True
-        break
     except TimeoutError:
         continue
+    except KeyboardInterrupt:
+        ff.quit()
+        break
     else:
         elem.click()
         count += 1
@@ -25,5 +24,3 @@ while not end:
             print("Counter error")
         else:
             print("Ok")
-else:
-    ff.close()
